@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Scholar's Vault Personal Data
+data/
+db/
+
 # Distribution / packaging
 .Python
 build/
