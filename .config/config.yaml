@@ -1,0 +1,43 @@
+####################################
+# Scholar's Vault Configuration
+####################################
+
+# Vector Database Settings
+vector_db:
+  type: "qdrant"  # Options: qdrant, chroma
+  collection_name: "scholars_vault"
+  storage_path: "data/vector_db"
+  
+# Embedding Model Configuration
+embeddings:
+  model_name: "BAAI/bge-small-en-v1.5"
+  dimension: 384
+  device: "cuda"  # Options: cuda, cpu (auto-fallback if CUDA unavailable)
+  batch_size: 32
+
+# Text Chunking Strategy
+chunking:
+  strategy: "recursive"  # Options: recursive, semantic, fixed
+  chunk_size: 1000
+  chunk_overlap: 200
+  separators: ["\n\n", "\n", " ", ""]
+
+# Supported File Formats
+supported_formats:
+  - ".pdf"
+  - ".docx"
+  - ".epub"
+  - ".txt"
+  - ".md"
+
+# Logging
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  file: "logs/scholars_vault.log"
+  console: true
+
+# Performance
+performance:
+  enable_gpu: true
+  max_workers: 4  # For parallel document processing
+  cache_embeddings: true
